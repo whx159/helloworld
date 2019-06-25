@@ -24,10 +24,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${userModel.userList.size()} eq 0">
+    <tr th:if="${userModel.list.size()} eq 0">
         <td colspan="3">无数据！</td>
     </tr>
-    <tr th:each="user:${userModel.userList}">
+    <tr th:each="user:${userModel.list}">
         <td th:text="${user.id}"></td>
         <td><a th:href="@{'/user/'+${user.id}}" th:text="${user.name}"></a></td>
         <td th:text="${user.age}"></td>

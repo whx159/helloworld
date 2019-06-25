@@ -1,0 +1,6 @@
+com\whx\demo\DemoApplication.class
+com\whx\demo\repository\UserRepository.class
+com\whx\demo\controller\HelloWorld.class
+com\whx\demo\controller\UserController.class
+com\whx\demo\domain\User.class
+com\whx\demo\repository\UserRepositoryImpl.class

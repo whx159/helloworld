@@ -3,11 +3,12 @@ package com.whx.demo.controller;
 import com.whx.demo.domain.User;
 import com.whx.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -38,18 +39,18 @@ public class UserController {
     @PostMapping
     public ModelAndView saveOrUpdateUser(User user){
         user =userRepository.saveOrUpdateUser(user);
-        return new ModelAndView("redirect");
+        return new ModelAndView("redirect:/user/list");
     }
 
     //根据id删除用户
-    @GetMapping(value = "delete/{id}")
+    @RequestMapping(value = "/delete/{id}")
     public ModelAndView delete(@PathVariable("id") Long id){
         userRepository.deleteUsere(id);
-        return new ModelAndView("redirect:/user");
+        return new ModelAndView("redirect:/user/list");
     }
 
     //修改用户界面
-    @GetMapping(value = "edit/{id}")
+    @GetMapping(value = "/edit/{id}")
     public ModelAndView editForm(@PathVariable("id") Long id,Model model){
         User user =userRepository.getUserById(id);
         model.addAttribute("user",user);
