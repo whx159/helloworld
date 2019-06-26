@@ -30,7 +30,7 @@
     <tr th:each="user:${userModel.list}">
         <td th:text="${user.id}"></td>
         <td><a th:href="@{'/user/'+${user.id}}" th:text="${user.name}"></a></td>
-        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
         <td><a th:href="@{'/user/delete/'+${user.id}}">删除</a></td>
     </tr>
     </tbody>
